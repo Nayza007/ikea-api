@@ -6,7 +6,6 @@ const {
 const bcryptService = require("../services/bcrypt-service");
 const tokenService = require("../services/token-service");
 const createError = require("../utils/create-error");
-const { User } = require("../models");
 const userService = require("../services/user-service");
 
 //   console.log("register");
@@ -29,7 +28,6 @@ const userService = require("../services/user-service");
 //   }
 // };
 exports.register = async (req, res, next) => {
-  console.log("register");
   try {
     const value = await validateRegister(req.body);
     const isUserExist = await userService.checkEmailExist(value.email);
@@ -46,7 +44,6 @@ exports.register = async (req, res, next) => {
 };
 
 exports.login = async (req, res, next) => {
-  console.log("step1 login");
   try {
     const value = validateLogin(req.body);
     const user = await userService.getUserByEmail(value.email);
