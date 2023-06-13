@@ -35,3 +35,20 @@ exports.getCartById = async (req, res, next) => {
     next(error);
   }
 };
+
+exports.updateCart = async (req, res, next) => {
+  try {
+    const { cartId, quantity, isPlus } = req.body;
+    const quantityData = +quantity + +isPlus;
+    console.log(quantityData);
+    if (quantityData > 0) {
+      await cartService.updateCartByCartId(cartId, quantityData);
+    } else {
+      await cartService.deleteCartByCartId(cartId);
+    }
+
+    res.status(200).json();
+  } catch (error) {
+    next(error);
+  }
+};

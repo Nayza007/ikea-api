@@ -30,3 +30,18 @@ exports.findAllCartById = (userId) => {
     include: Product,
   });
 };
+
+exports.patchCart = (cartId, quantityData) => {
+  return Cart.update(
+    { quantity: quantityData },
+    {
+      where: {
+        id: cartId,
+      },
+    }
+  );
+};
+
+exports.deleteCart = (cartId) => {
+  return Cart.destroy({ where: { id: cartId } });
+};

@@ -12,3 +12,10 @@ exports.updateCartById = async (cartId, quantity) =>
 
 exports.getCartById = async (userId) =>
   await cartRepository.findAllCartById(userId);
+
+exports.updateCartByCartId = async (cartId, quantityData) =>
+  await cartRepository.patchCart(cartId, quantityData);
+
+exports.deleteCartByCartId = async (cartId) => {
+  await cartRepository.deleteCart(cartId);
+};
