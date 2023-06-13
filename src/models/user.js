@@ -52,15 +52,30 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  // User.associate = (models) => {
-  //   User.hasMany(models.Cart, {
-  //     foreignKey: {
-  //       name: "userId",
-  //       allowNull: false,
-  //     },
-  //     onDelete: "RESTRICT",
-  //   });
-  // };
+  User.associate = (models) => {
+    User.hasMany(models.Cart, {
+      foreignKey: {
+        name: "userId",
+        allowNull: false,
+      },
+      onDelete: "RESTRICT",
+    });
+
+    User.hasMany(models.Address, {
+      foreignKey: {
+        name: "userId",
+        allowNull: false,
+      },
+      onDelete: "RESTRICT",
+    });
+    User.hasMany(models.Order, {
+      foreignKey: {
+        name: "userId",
+        allowNull: false,
+      },
+      onDelete: "RESTRICT",
+    });
+  };
 
   return User;
 };
