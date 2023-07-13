@@ -6,13 +6,9 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.ENUM("pending", "success"),
         allowNull: false,
         defaultValue: "pending",
-        validate: {
-          isNumeric: true,
-        },
       },
       slipImage: {
         type: DataTypes.STRING,
-        allowNull: false,
       },
     },
     {

@@ -10,6 +10,9 @@ const authRouter = require("./routes/auth-route");
 const adminRouter = require("./routes/admin-routes");
 const productRouter = require("./routes/product-routes");
 const cartRouter = require("./routes/cart-routes");
+const paymentRouter = require("./routes/payment-routes");
+const authenticate = require("./middlewares/authenticate");
+
 const app = express();
 //secure
 app.use(cors());
@@ -19,7 +22,7 @@ app.use("/images", express.static("public/images"));
 // app.use(
 //   rateLimit({
 //     windowMs: 15 * 60 * 1000,
-//     max: 50,
+//     max: 500,
 //   })
 // );
 if (process.env.NODE_ENV === "development") {
@@ -30,6 +33,9 @@ app.use("/", productRouter);
 app.use("/auth", authRouter);
 app.use("/admin", adminRouter);
 app.use("/cart", cartRouter);
+app.use("/payment", authenticate, paymentRouter);
+
+// app.use("/stripe/");
 
 app.use(notFoundMiddleware);
 app.use(errorMiddleware);

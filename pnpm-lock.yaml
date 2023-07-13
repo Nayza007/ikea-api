@@ -44,6 +44,9 @@ dependencies:
   sequelize-cli:
     specifier: ^6.6.1
     version: 6.6.1
+  stripe:
+    specifier: ^12.11.0
+    version: 12.11.0
   uuid:
     specifier: ^9.0.0
     version: 9.0.0
@@ -1555,6 +1558,14 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       ansi-regex: 5.0.1
+    dev: false
+
+  /stripe@12.11.0:
+    resolution: {integrity: sha512-nyVumI9TXqr+B32397lLHF8VPbTWNvCF/rdY6oLXHLZr+7S8q2PJzo2TUvfowD0eSNz5Hz0O0I2kw9Qb2EyGQA==}
+    engines: {node: '>=12.*'}
+    dependencies:
+      '@types/node': 20.2.5
+      qs: 6.11.0
     dev: false
 
   /supports-preserve-symlinks-flag@1.0.0:

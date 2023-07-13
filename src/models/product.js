@@ -19,11 +19,18 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       price: {
-        type: DataTypes.STRING,
+        type: DataTypes.DECIMAL(10),
         allowNull: false,
-        validate: {
-          isNumeric: true,
-        },
+        // validate: {
+        //   isNumeric: true,
+        // },
+        // get() {
+        //   const rawValue = this.getDataValue("price");
+        //   const formattedValue = new Intl.NumberFormat("th-TH").format(
+        //     rawValue
+        //   );
+        //   return formattedValue;
+        // },
       },
       productImage: {
         type: DataTypes.STRING,

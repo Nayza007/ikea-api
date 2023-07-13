@@ -5,11 +5,16 @@ module.exports = (sequelize, DataTypes) => {
       totalPrice: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-          isNumeric: true,
-        },
+        // validate: {
+        //   isNumeric: true,
+        // },
       },
       statusDelivery: {
+        type: DataTypes.ENUM("pending", "success"),
+        allowNull: false,
+        defaultValue: "pending",
+      },
+      statusOrder: {
         type: DataTypes.ENUM("pending", "success"),
         allowNull: false,
         defaultValue: "pending",
