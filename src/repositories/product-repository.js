@@ -40,5 +40,6 @@ exports.updateProduct = (id, quantity, t) => {
 exports.findSearch = (id) => {
   return Product.findAll({
     where: { productName: { [Op.like]: `${id}%` }, quantity: { [Op.gt]: 0 } },
+    order: [["createdAt", "DESC"]],
   });
 };
